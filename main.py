@@ -47,12 +47,6 @@ class Items(BaseModel):
 def make_prediction(items: List[Item]) :
     # создадим датафрейм
     df = pd.DataFrame(jsonable_encoder(items))
-        
-    
-    print("=======================================================================")
-    print(type(items[0]))
-    print("=======================================================================")
-        
     df.drop(['name', 'torque','selling_price'], axis=1, inplace=True)
 
     # предобработка столбцов
