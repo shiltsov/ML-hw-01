@@ -68,9 +68,6 @@ def make_prediction(items: List[Item]) :
     # кодирование категориалных
     df_ohe = ohe.transform(df[["fuel","seller_type","transmission","owner","seats"]])
     df[ohe.get_feature_names_out()] = df_ohe
-    
-    print(df.head())
-    
     df = df.drop(["fuel","seller_type","transmission","owner","seats"], axis=1)
 
     return reg.predict(df)
